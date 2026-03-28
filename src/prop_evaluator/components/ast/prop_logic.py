@@ -9,6 +9,21 @@ class PropExpression(ABC):
     def prefix(self) -> str:
         pass
 
+# leaf nodes
+class PropTrue(PropExpression):
+    def run(self) -> bool:
+        return True
+
+    def prefix(self) -> str:
+        return "t"
+
+class PropFalse(PropExpression):
+    def run(self) -> bool:
+        return False
+
+    def prefix(self) -> str:
+        return "f"
+
 
 
     
