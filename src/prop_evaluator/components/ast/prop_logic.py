@@ -51,7 +51,7 @@ class PropOr(PropExpression):
 if __name__ == "__main__":
     # t ∨ f ∧ f  →  t ∨ (f ∧ f)  =  True
     # this is explicitly defined to enforce AND precedence over OR.
-    # lexer would be doing it for us in the main app. :)
+    # lexer+parser would be doing it for us in the main app. :)
     expr = PropOr(PropTrue(), PropAnd(PropFalse(), PropFalse()))
     print(expr.run()) ## True
     print(expr.prefix()) ## v t ∧ f f
