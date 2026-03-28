@@ -46,7 +46,7 @@ class PropOr(PropExpression):
         return self.left.run() or self.right.run()
 
     def prefix(self) -> str:
-        return f"v {self.left.prefix()} {self.right.prefix()}"
+        return f"∨ {self.left.prefix()} {self.right.prefix()}"
 
 if __name__ == "__main__":
     # t ∨ f ∧ f  →  t ∨ (f ∧ f)  =  True
