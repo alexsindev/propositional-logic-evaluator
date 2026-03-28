@@ -33,19 +33,24 @@ class PropLogicParser(Parser):
 
     # https://sly.readthedocs.io/en/latest/sly.html#panic-mode-recovery
     def error(self, p):
-        if p:
-            print("Syntax error at token", p.type)
-            # Just discard the token and tell the parser it's okay.
-            self.errok()
-        else:
-            print("Syntax error at EOF")
+        #discards the entire parsing stack and resets the parser
+        self.restart()
 
+        # throw an exception
+        if p:
+            raise Exception(f"Syntax error at token {p.value} at position {p.index}")
+        else:
+            raise Exception("Syntax error at EOF")
+            
 # testing lexer + parser (that utilizes the PropExpression AST)
 # here the parser respects the precedence as statically defined
 if __name__ == "__main__":
     lexer  = PropLogicLexer()
     parser = PropLogicParser()
 
-    result = parser.parse(lexer.tokenize("t ∨ f ∧ f"))
-    print(result.run())    # True
-    print(result.prefix()) # ∨ t ∧ f f
+    try:
+        result = parser.parse(lexer.tokenize("t ∨ f ∧∧  f"))
+        print(result.run())    # True
+        print(result.prefix()) # ∨ t ∧ f f
+    except Exception as e:
+        print(e)
