@@ -13,12 +13,12 @@
             "cwd": "${workspaceFolder}/src/example/"
         },
         {
-            "name": "[project] Python Debugger",
+            "name": "[prop_evaluator] Python Debugger",
             "type": "debugpy",
             "request": "launch",
             "python": "${workspaceFolder}/.venv/bin/python",
             "program": "main.py",
-            "cwd": "${workspaceFolder}/src/project/"
+            "cwd": "${workspaceFolder}/src/prop_evaluator/"
         }
     ]
 }
