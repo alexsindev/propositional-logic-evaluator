@@ -340,3 +340,9 @@ PropOr.prefix()
   → "∨ " + "t"                  + " " + "∧ f f"
   → "∨ t ∧ f f"                                              ✓
 ```
+
+Sample:
+
+<img width="300" src="asset/gui.png" />
+<img width="300" src="asset/gui_sample.png" />
+<img width="300" src="asset/gui_sample1.png" />
